@@ -21,7 +21,7 @@ RUN cd client && npm install --production=false
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application (only after all dependencies are installed)
 RUN npm run build
 
 # Remove devDependencies to reduce image size
