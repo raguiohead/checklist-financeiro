@@ -8,13 +8,19 @@ WORKDIR /app
 ENV NODE_OPTIONS="--no-deprecation"
 ENV NODE_ENV=production
 
-# Copy package files
+# Copy package files first
 COPY package*.json ./
 COPY server/package*.json ./server/
 COPY client/package*.json ./client/
 
-# Install dependencies
-RUN npm run install:all
+# Install root dependencies
+RUN npm install
+
+# Install server dependencies
+RUN cd server && npm install
+
+# Install client dependencies
+RUN cd client && npm install
 
 # Copy source code
 COPY . .

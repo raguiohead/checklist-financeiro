@@ -11,3 +11,8 @@ restartPolicyMaxRetries = 10
 [deploy.envs]
 NODE_OPTIONS = "--no-deprecation"
 NODE_ENV = "production"
+PORT = "3001"
+
+# Configurações de build personalizadas
+[build.envs]
+NODE_ENV = "production"

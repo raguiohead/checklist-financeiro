@@ -1,0 +1,37 @@
+# Arquivos de desenvolvimento
+node_modules/
+.git/
+.github/
+.vscode/
+*.log
+*.tmp
+
+# Arquivos de build local
+dist/
+build/
+*.db
+*.sqlite
+
+# Scripts de desenvolvimento
+scripts/setup-dev.ps1
+scripts/setup-dev.sh
+scripts/build-railway.sh
+
+# Documentação local
+docs/
+*.md
+
+# Docker local
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Configurações locais
+.env
+.env.local
+.env.development
+
+# Logs e cache
+logs/
+.cache/
+.npm/
