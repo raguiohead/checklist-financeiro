@@ -22,6 +22,7 @@ docs/
 *.md
 
 # Docker local
+Dockerfile.backup
 docker-compose.yml
 .dockerignore
 
