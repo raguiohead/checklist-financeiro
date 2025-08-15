@@ -13,20 +13,21 @@ COPY package*.json ./
 COPY server/package*.json ./server/
 COPY client/package*.json ./client/
 
-# Install root dependencies
-RUN npm install
-
-# Install server dependencies
-RUN cd server && npm install
-
-# Install client dependencies
-RUN cd client && npm install
+# Install ALL dependencies (including devDependencies for build)
+RUN npm install --production=false
+RUN cd server && npm install --production=false
+RUN cd client && npm install --production=false
 
 # Copy source code
 COPY . .
 
 # Build the application
 RUN npm run build
+
+# Remove devDependencies to reduce image size
+RUN npm prune --production
+RUN cd server && npm prune --production
+RUN cd client && npm prune --production
 
 # Create logs directory
 RUN mkdir -p logs

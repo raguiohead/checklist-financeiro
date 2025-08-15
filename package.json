@@ -11,6 +11,8 @@
     "setup:win": "powershell -ExecutionPolicy Bypass -File scripts/setup-dev.ps1",
     "setup:unix": "chmod +x scripts/setup-dev.sh && ./scripts/setup-dev.sh",
     "build": "npm run build:server && npm run build:client",
+    "build:prod": "npm run build:server && npm run build:client",
+    "build:railway": "npm install --production=false && cd server && npm install --production=false && cd ../client && npm install --production=false && cd .. && npm run build",
     "build:server": "cd server && npm run build",
     "build:client": "cd client && npm run build",
     "start": "cd server && npm start",
