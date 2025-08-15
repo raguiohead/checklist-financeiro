@@ -1,0 +1,50 @@
+{
+  "name": "checklist-financeiro",
+  "version": "1.0.0",
+  "description": "App de Checklist Financeiro Semanal - Seu Ritual de Domingo",
+  "main": "dist/server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev:no-warnings": "NODE_OPTIONS=\"--no-deprecation\" concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "setup:win": "powershell -ExecutionPolicy Bypass -File scripts/setup-dev.ps1",
+    "setup:unix": "chmod +x scripts/setup-dev.sh && ./scripts/setup-dev.sh",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "cd server && npm run build",
+    "build:client": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "install:all": "npm install && cd server && npm install && cd client && npm install",
+    "db:backup": "node scripts/backup-db.js",
+    "db:migrate": "node scripts/migrate-db.js",
+    "db:seed": "node scripts/seed-db.js",
+    "db:reset": "npm run db:backup && npm run db:seed -- --clear",
+    "docker:build": "docker build -t checklist-financeiro .",
+    "docker:run": "docker run -p 3001:3001 checklist-financeiro",
+    "docker:compose": "docker-compose up -d",
+    "docker:compose:down": "docker-compose down",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop checklist-financeiro",
+    "pm2:restart": "pm2 restart checklist-financeiro",
+    "pm2:logs": "pm2 logs checklist-financeiro",
+    "pm2:status": "pm2 status"
+  },
+  "keywords": ["finanças", "checklist", "organização", "planejamento", "controle-financeiro", "metas"],
+          "author": "raguiohead",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+          "repository": {
+          "type": "git",
+          "url": "https://github.com/raguiohead/checklist-financeiro.git"
+        },
+          "bugs": {
+          "url": "https://github.com/raguiohead/checklist-financeiro/issues"
+        },
+          "homepage": "https://github.com/raguiohead/checklist-financeiro#readme"
+}
