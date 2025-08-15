@@ -147,8 +147,7 @@ checklist-financeiro/
 │   └── seed-db.js         # Dados iniciais
 ├── package.json            # Scripts principais
 ├── railway.json           # Configuração Railway
-├── docker-compose.yml     # Docker para desenvolvimento
-└── Dockerfile             # Containerização
+
 ```
 
 ## 🔌 API Endpoints
@@ -185,29 +184,7 @@ NODE_ENV=production
 PORT=3000
 ```
 
-## 🐳 Docker
 
-### Desenvolvimento Local
-```bash
-# Usar Docker Compose
-npm run docker:compose
-
-# Parar containers
-npm run docker:compose:down
-
-# Build manual
-npm run docker:build
-npm run docker:run
-```
-
-### Produção
-```bash
-# Build da imagem
-docker build -t checklist-financeiro .
-
-# Executar container
-docker run -p 3001:3001 checklist-financeiro
-```
 
 ## 📊 Monitoramento e Processos
 
@@ -263,9 +240,7 @@ Edite `client/src/pages/Gastos.tsx` para:
   "db:seed": "Popular com dados iniciais",
   "db:reset": "Backup + limpar + popular",
   
-  "docker:build": "Build da imagem Docker",
-  "docker:run": "Executar container Docker",
-  "docker:compose": "Usar Docker Compose",
+
   
   "pm2:start": "Iniciar com PM2",
   "pm2:stop": "Parar aplicação PM2",

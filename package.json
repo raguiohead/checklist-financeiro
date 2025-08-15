@@ -22,10 +22,7 @@
     "db:migrate": "node scripts/migrate-db.js",
     "db:seed": "node scripts/seed-db.js",
     "db:reset": "npm run db:backup && npm run db:seed -- --clear",
-    "docker:build": "docker build -t checklist-financeiro .",
-    "docker:run": "docker run -p 3001:3001 checklist-financeiro",
-    "docker:compose": "docker-compose up -d",
-    "docker:compose:down": "docker-compose down",
+
     "pm2:start": "pm2 start ecosystem.config.js",
     "pm2:stop": "pm2 stop checklist-financeiro",
     "pm2:restart": "pm2 restart checklist-financeiro",

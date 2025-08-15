@@ -21,10 +21,7 @@ scripts/build-railway.sh
 docs/
 *.md
 
-# Docker local
-Dockerfile.backup
-docker-compose.yml
-.dockerignore
+
 
 # Configurações locais
 .env

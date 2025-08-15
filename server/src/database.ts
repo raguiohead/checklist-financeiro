@@ -45,12 +45,13 @@ export class Database {
   private db: sqlite3.Database;
 
   constructor() {
-    // Em produção, usar arquivo; em desenvolvimento, usar memória
+    // Em produção (Railway), usar arquivo; em desenvolvimento, usar memória
     const isProduction = process.env.NODE_ENV === 'production';
     const dbPath = isProduction 
       ? path.join(process.cwd(), 'data.db')
       : ':memory:';
     
+    console.log(`🗄️ Conectando ao banco: ${isProduction ? 'Arquivo (Railway)' : 'Memória (Dev)'} - ${dbPath}`);
     this.db = new sqlite3.Database(dbPath);
   }
 
